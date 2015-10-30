@@ -4,10 +4,13 @@ import javax.swing.JOptionPane
 
 def getData(Class clas = String, Closure... closure){
 	//TODO
-	
-	
+
+
 	while(1){
 		input = JOptionPane.showInputDialog("getData");
+
+		if(input == null)
+			break;
 
 		boolean isOk = true;
 
@@ -20,9 +23,10 @@ def getData(Class clas = String, Closure... closure){
 				if(closure.length > 0 && !closure[0](it))
 					throw new Exception();
 			}
-			
+
 			break;
 		}catch(Exception e){
+//			e.printStackTrace()
 			continue;
 		}
 
@@ -32,7 +36,7 @@ def getData(Class clas = String, Closure... closure){
 	input
 }
 
-getData(Integer) { it > 0 }            // liczby ca≥kowite wiÍksze od 0
-println getData() { it.size() > 3 }   // s≥owa o d≥ugoúci wiÍkszej od 3 (domyúlny typ: String)
-println getData()                          // dowolne napisy (s≥owa)
+println getData(Integer) { it > 0 }            // liczby ca≈Çkowite wiƒôksze od 0
+println getData() { it.size() > 3 }   // s≈Çowa o d≈Çugo≈õci wiƒôkszej od 3 (domy≈õlny typ: String)
+println getData()                          // dowolne napisy (s≈Çowa)
 println getData(BigDecimal)         // dowolne liczby
