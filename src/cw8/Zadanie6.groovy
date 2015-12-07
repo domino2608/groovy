@@ -1,5 +1,7 @@
 package cw8
 
+import javax.swing.JOptionPane
+
 /**
  * @author domino
  * */
@@ -19,31 +21,38 @@ package cw8
 
 //def lines = new URL("http://www.puzzlers.org/pub/wordlists/unixdict.txt").readLines()
 
-def comp = [compare: {a, b ->
-		-a.value.size().compareTo(b.value.size())
-	}] as Comparator
+def alphabetize = {
+	char[] chars = it.toCharArray()
+	Arrays.sort(chars);
 
-def anagramMap = new TreeMap<String, List<String>>(comp);
+	new String(chars);
+}
 
-//def lines = new URL("http://www.puzzlers.org/pub/wordlists/unixdict.txt").readLines();
 
-def lines = new File("anagrams.txt").readLines();
+def anagramMap = new HashMap<String, TreeSet<String>>();
+
+def lines = new URL("http://www.puzzlers.org/pub/wordlists/unixdict.txt").readLines();
 
 lines.each{ word ->
-	char[] chars = word.toCharArray()
-	Arrays.sort(chars)
+	def alpha = alphabetize(word)
 
-	def alpha = new String(chars)
+	def anagramSet = anagramMap.get(alpha, new TreeSet<String>())
+	anagramSet << word;
 
-	def anagramList = anagramMap.get(alpha, [])
-	
-	println angaramMap
-	
-	anagramList << word;
-
-	anagramMap[alpha] = anagramList
+	anagramMap[alpha] = anagramSet
 };
 
-anagramMap.each {
-	println it.key + " " + it.value
+anagramMap = anagramMap.sort({-it.value.size()})
+anagramMap.each {key, val ->
+	if(val.size() > 2)
+		println "$key $val"
 }
+
+//b)
+String input = JOptionPane.showInputDialog("Word to show angrams:");
+
+def anagramsForWord = anagramMap.get(alphabetize(input));
+anagramsForWord.remove(input)
+
+println "======================================"
+println "anagrams for $input: $anagramsForWord"
