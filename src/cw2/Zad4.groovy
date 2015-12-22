@@ -3,8 +3,6 @@ package cw2
 import javax.swing.JOptionPane
 
 def getData(Class clas = String, Closure... closure){
-	//TODO
-
 
 	while(1){
 		input = JOptionPane.showInputDialog("getData");
