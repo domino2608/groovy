@@ -1,13 +1,23 @@
+package cw5;
+
+/**
+ * @author Domino
+ * */
+
+/*
+ Napisać funkcję String join(List l, String sep) zwracająca napis zawierający elmenty listy l rozdzielone separatorami sep.
+ */
+
+
 String join(List l, String sep){
 	StringBuilder strBuilder = new StringBuilder()
-	
-	0.upto(l.size() - 2){
-		strBuilder.append(l[it] + sep)
+
+	l.each { elem ->
+		strBuilder << elem
+		strBuilder << sep
 	}
-	
-	strBuilder.append(l.last())
-	
-	strBuilder.toString()
+
+	strBuilder.toString()[0..-2]
 }
 
 def list = ["a", "b", "c", "d"]

@@ -16,5 +16,6 @@ println "przed sortowaniem: " +  nums
 nums.sort()
 println "po sortowaniu: " + nums
 
-def selectedNums = nums.findAll {it < 10}
-println selectedNums
+def selectedNums = nums.findAll {it < 0}
+
+println "mniejsze od 0: $selectedNums"

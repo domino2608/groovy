@@ -3,6 +3,7 @@ package cw8
 /**
  * @author domino
  * */
+
 /*
  Posortuj listę liczb w porządku malejącym.
  a) napisz własny komparator

@@ -1,18 +1,24 @@
 import javax.swing.JOptionPane;
 
-map = [:]
+/**
+ * @author Domino
+ * */
 
-while(1){
-	input = JOptionPane.showInputDialog("pozycja=koszt / end")
-	
-	if(input == "end" || input == null)
-		break
-	
-	tmp = input.split("=")
-	int koszt = tmp[1] as int
-	
-	map[tmp[0]] = (map[tmp[0]] == null)? koszt : map[tmp[0]] + koszt
-	
+/*
+ Napisy wprowadzane w kolejnych dialogach mają formę:  pozycja = koszt.
+ Zsumuj wszystkie koszty dla tych samych pozycji (np. mleko, chleb).
+ */
+
+
+def map = [:]
+
+while(input = JOptionPane.showInputDialog("pozycja=koszt")){
+	def tokens = input.tokenize("=")
+
+	if(map[tokens[0]] == null)
+		map[tokens[0]] = 0
+
+	map[tokens[0]] += Integer.parseInt(tokens[1])
 }
 
 println map

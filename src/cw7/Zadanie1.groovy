@@ -51,9 +51,9 @@ projectMap.each {key, value ->
 	}
 }
 
-def proggramersFile = new File("Programisci.txt")
+def programmersFile = new File("Programisci.txt")
 
-proggramersFile.withPrintWriter { writer ->
+programmersFile.withPrintWriter { writer ->
 	personProjectMap.each { key, value ->
 		writer.print(key + "\t")
 

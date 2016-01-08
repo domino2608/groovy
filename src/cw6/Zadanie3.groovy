@@ -5,7 +5,7 @@ package cw6;
  */
 
 def text = "1994-02-012003-13-12 abs20a3002-q-wj 3029-30-01"
-def regex = "\\d{4}-\\d{2}-\\d{2}" //TODO change regex
+def regex = "\\d{4}-\\d{2}-\\d{2}"
 
 
 

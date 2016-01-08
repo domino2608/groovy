@@ -19,7 +19,6 @@ import javax.swing.JOptionPane
  anagramy = słowa składające się z tych samych znaków
  */
 
-//def lines = new URL("http://www.puzzlers.org/pub/wordlists/unixdict.txt").readLines()
 
 def alphabetize = {
 	char[] chars = it.toCharArray()

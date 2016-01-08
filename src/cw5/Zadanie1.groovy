@@ -1,14 +1,17 @@
-//check how to do it in groovy way
+package cw5;
+
+/**
+ * @author Domino
+ * */
+
+/*
+ Napisać funkcję String reverseChars(String s)  odwracającą napis s i zwracającą odwrócony napis.
+ np. reverseChars("piesek") zwróci "keseip"
+ */
+
 
 String reverseChars(String s){
-	
-	def result = ""
-	for(int i = s.length() - 1; i >= 0; i--){
-		result += s[i]
-	}
-	
-	result
+	s[-1..0]
 }
-
 
 println reverseChars("piesek")
